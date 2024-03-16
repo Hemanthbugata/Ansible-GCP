@@ -1,0 +1,20 @@
+	- name:  Create Cloud Function 
+	hosts:   localhost
+	gather_facts:  no
+	
+	tasks:
+		 
+		- name: create a cloud function
+		 google.cloud.gcp_cloudfunctions_cloud_function:
+		    name: test_object
+		    location: us-central1
+		    entry_point: helloWorld
+		    source_archive_url: gs://ansible-cloudfunctions-bucket/function.zip
+		    trigger_http: 'true'
+		    project: test_project
+		    auth_kind: serviceaccount
+        runtime: nodejs12
+		    service_account_file: "/tmp/auth.pem"
+		    state: present
+		
+		
