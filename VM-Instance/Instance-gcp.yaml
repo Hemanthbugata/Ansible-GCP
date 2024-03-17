@@ -1,15 +1,13 @@
-Playbook 
-
 - name: Create an instance
   hosts: localhost
   gather_facts: no
   vars:
       gcp_project: avian-presence-410617
       gcp_cred_kind: serviceaccount
-      gcp_cred_file: /home/hemanthbugata03/avian-presence-410617-2c66070262cd.json
+      gcp_cred_file: /home/hemanthbugata03/avian-presence-410617-d092b850219f.json  
       zone: "us-central1-a"
       region: "us-central1"
-
+  
   tasks:
    - name: create a disk
      gcp_compute_disk:
